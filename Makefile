@@ -2,9 +2,14 @@
 fl:=$(shell seq -w 0000 0099)
 all: $(fl:%=STM/%.h5)
 
+SHELL:=/bin/bash
+
 # dos 是 Density of States，态密度
 dos-position/%.h5: dos-momentum/%.h5
 	python3 scatter.py $^ $@
+
+N-scatter/%.csv:
+	echo $$(($$RANDOM % 50)) > $@
 
 scatter-centers/%.csv: N-scatter/%.csv
 	python3 sample-centers.py $^ $@
