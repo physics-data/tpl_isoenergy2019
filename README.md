@@ -68,7 +68,7 @@ python3 scatter.py 0 dos-momentum/0023.h5 dos-position/0023.h5
 
 $$
  D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) \left|\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i\mathbf{k}_2\mathbf{r}})\right|^2
- $$
+$$
 
 如果散射中心有磁性，即 `sys.argv[1]==1` 时，需要给出射波填加一个 $\pi$ 的相位：
 
@@ -108,7 +108,15 @@ python3 damping.py dos-position/0023.h5 dos-position/damp/0023.h5
 
 * 生成散射点不在图像中心的 QPI 图样。这能为后续作业提供更为丰富的数据集。
 * 生成存在多个散射点的 QPI 图样。在真实材料体系中，杂质点的分布通常是随机且相对密集的，即在所测到的局域态密度图内包含数十个散射中心。生成 QPI 图样时注意要保证入射波与出射波在每一个散射点满足相位要求。
-* 为不同散射过程指定不同散射概率。即对于一组 $(\mathbf{k}_1,\mathbf{k}_2)$，其发生概率P依赖于 $\mathbf{k}_1$ 和 $\mathbf{k}_2$。而在基本要求中，我们认为不同散射过程是等概率的。可以采用的形式如：$P(\mathbf{k}_1,\mathbf{k}_2 )=[1-(\mathbf{k}_1\dot\mathbf{k}_2)/|\mathbf{k}_1 ||\mathbf{k}_2 | ]/2$，或者用矩阵形式进行任意指定。
+* 为不同散射过程指定不同散射概率。即对于一组 $(\mathbf{k}_1,\mathbf{k}_2)​$，其发生概率P依赖于 $\mathbf{k}_1​$ 和 $\mathbf{k}_2​$。而在基本要求中，我们认为不同散射过程是等概率的。可以采用的形式如：
+
+$$
+P(\mathbf{k}_1,\mathbf{k}_2 )=\frac{1}{2}\left( 1-\frac{\mathbf{k}_1 \cdot \mathbf{k}_2}{\left| \mathbf{k}_1 \right| \left| \mathbf{k}_2 \right|} \right)
+$$
+
+
+
+​	或者用矩阵形式进行任意指定。
 
 如果你实现了任何提高要求，请在实验报告中详细说明你的工作，这将作为评分的依据。
 
