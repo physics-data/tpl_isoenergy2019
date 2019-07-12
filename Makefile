@@ -28,12 +28,12 @@ dos-position/m/damp/%.h5: dos-position/m/%.h5
 # 画倒空间等能面附近电子态密度图
 p_momentum/%.png: dos-momentum/%.h5
 	mkdir -p $(dir $@)
-	python3 gimage.py $^ $@
+	python3 gimage.py 0 $^ $@
 
 # 画实空间散射中心周围电子态密度图
 STM/%.png: dos-position/%.h5
 	mkdir -p $(dir $@)
-	python3 gimage.py $^ $@
+	python3 gimage.py 1 $^ $@
 
 # Delete partial files when the processes are killed.
 .DELETE_ON_ERROR:
