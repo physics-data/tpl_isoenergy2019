@@ -6,7 +6,43 @@
 
 ## 大作业简介
 
-FIXME!
+探索晶体材料的新奇电子结构是凝聚态物理学的重要课题之一。扫描隧道显微学
+（Scanning tunneling microscopy, STM）与隧道谱学（Scanning tunneling
+spectroscopy, STS）能够直接测量材料表面原子晶格结构与能态密度（Density
+of states, DOS）。该测量方法对于探究材料表面态（Surface state）或石墨
+烯等层状材料的准二维电子结构则更加具有优势。
+
+![扫描隧道显微镜结构(from Wikipedia)](STM-schematics.png)
+*扫描隧道显微镜结构(from Wikipedia)*
+
+通常认为扫描隧道显微镜（Scanning tunneling microscope, STM）探测到的都
+是实空间（Real-space）的信号，要想得到倒空间（k-space）的信息还得依
+赖于其它具有动量分辨能力的测量手段。例如，角分辨光电子谱
+（Angle-resolved Photoemission Spectroscopy , ARPES）是一种能直接获得
+电子动量与能量的测量方法。人们为了同时获得时空间与动量空间的信息，发展
+出了傅里叶变换隧道谱学（Fourier Transform STS, FT-STS）的方法，能够从
+STM 测到的实空间图像中获得动量空间的信息，进而得到能带结构等重要信息。
+那么 FT-STS 的基本原理是怎样的呢？我们通过 STM 测量样品在某个能量上各
+处的局域能态密度（Local DOS）。当样品上有杂质时（真实材料中往往如此），
+该处的波函数将被散射。由于该散射过程通常是相干的，入射波与反射波将相干
+叠加形成驻波，对局域能态密度形成调制，所形成的波纹状图案通常被称为准粒
+子干涉（Quasiparticle Interference, QPI）图样。总之，动量空间中的信息
+通过散射过程投射到了实空间的数据中。通过对时空间图像进行傅里叶变换，我
+们将能得到驻波的波矢信息，进而推断出等能面（Isoenergic Surface）的结构。
+
+![铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)](copper-QPI.png)
+*铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)*
+
+利用对 QPI 分析，人们研究了石墨烯（Graphene）[Science 317, 219–222
+(2007)]，铜氧化物高温超导体（High-Tc Cuprate Superconductors）[Science
+297, 1148–1151 (2002)]、铁基超导体（Fe-based Superconductors）
+[Nat. Commun. 7, 10565 (2016)]等新奇材料的电子结构，极大促进了人类对物
+质世界的认识与理解。
+
+本大作业旨在同学们掌握通过局域态密度图（Local DOS Map）得到二维等能面
+结构（Isoenergic Surface）的基本原理与相关数据处理方法。分为两个步骤进
+行，这是是大作业的第一步，利用假设的动量空间等能面结构，生成中心散射点
+（两种不同类型的杂质）附近区域的局域态密度图，即 QPI 图样。
 
 ## 数据说明
 
@@ -62,12 +98,12 @@ python3 scatter.py 0 dos-momentum/0023.h5 dos-position/0023.h5
 
 设倒空间的态密度为 $f(\mathbf{k})$, 当散射中心在实空间原点时，实空间的态密度为：
 
-$ D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) |\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i\mathbf{k}_2\mathbf{r}}| $
+$ D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) |\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i\mathbf{k}_2\mathbf{r}}|^2 $
 
 如果散射中心有磁性，即 `sys.argv[1]==1` 时，需要给出射波填加一个 $\pi$
 的相位：
 
-$ D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) |\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i(\mathbf{k}_2\mathbf{r} + \pi)}| $
+$ D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) |\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i(\mathbf{k}_2\mathbf{r} + \pi)}|^2 $
 
 #### `gimage.py`
 
@@ -97,9 +133,10 @@ python3 damping.py dos-position/0023.h5 dos-position/damp/0023.h5
 
 ### 提高要求
 
-提高要求为加分项，至多可加 20 分。你可以自由发挥，一些可选项为：
+提高要求为加分项，至多可加 20 分。你可以自由发挥，可选项为：
 
-FIXME!
+考虑多个散射中心时的 QPI 图样，并写出程序实现。当作业中的要求作为高级
+程序实现的一种特殊情况。
 
 如果你实现了任何提高要求，请在实验报告中详细说明你的工作，这将作为评分的依据。
 
