@@ -102,6 +102,10 @@ $$
 python3 damping.py dos-position/0023.h5 dos-position/damp/0023.h5
 ```
 
+#### `dos-position/%.h5`
+
+`dos-position` 各级目录下的 `.h5` 文件中，都使用名为 `/QPI` 的 `(201,201)` 二维数组来存储实空间的 QPI 图样。
+
 ### 提高要求
 
 提高要求为加分项，至多可加 20 分。你可以自由发挥，可选项为：
