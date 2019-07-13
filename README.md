@@ -9,7 +9,7 @@
 探索晶体材料的新奇电子结构是凝聚态物理学的重要课题之一。扫描隧道显微学（Scanning tunneling microscopy, STM）与隧道谱学（Scanning tunneling spectroscopy, STS）能够直接测量材料表面原子晶格结构与能态密度（Density of states, DOS）。该测量方法对于探究材料表面态（Surface state）或石墨烯等层状材料的准二维电子结构则更加具有优势。
 
 ![扫描隧道显微镜结构(from Wikipedia)](STM-schematics.png)  
-*扫描隧道显微镜结构(from Wikipedia)*
+*扫描隧道显微镜结构 (from Wikipedia)*
 
 通常认为扫描隧道显微镜（Scanning tunneling microscope, STM）探测到的都是实空间（Real-space）的信号，要想得到倒空间（k-space）的信息还得依赖于其它具有动量分辨能力的测量手段。
 
@@ -18,7 +18,7 @@
 总之，动量空间中的信息通过散射过程投射到了实空间的数据中。通过对时空间图像进行傅里叶变换，我们将能得到驻波的波矢信息，进而推断出等能面（Isoenergic Surface）的结构。
 
 ![铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)](copper-QPI.png)  
-*铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)*
+*铜表面二维电子气的 QPI 图样及其 FFT [Nat. Commun. 6, 8691 (2015)]*
 
 利用对 QPI 分析，人们研究了石墨烯（Graphene）[Science 317, 219–222 (2007)]，铜氧化物高温超导体（High-Tc Cuprate Superconductors）[Science 297, 1148–1151 (2002)]、铁基超导体（Fe-based Superconductors）[Nat. Commun. 7, 10565 (2016)]等新奇材料的电子结构，极大促进了人类对物质世界的认识与理解。
 
@@ -78,7 +78,7 @@ $$
 
 #### `gimage.py`
 
-读取实空间(当 `sys.argv[1]==1`)或倒空间(当`sys.argv[1]==0`)的二维态密度数组，画出可以表征二维标量场的图形。以 `dos-momentum/0023.h5` 为例，程序的调用形式为：
+读取实空间（当 `sys.argv[1]==1`）或倒空间（当`sys.argv[1]==0`）的二维态密度数组，画出可以表征二维标量场的图形。以 `dos-momentum/0023.h5` 为例，程序的调用形式为：
 
 ```bash
 python3 gimage.py 0 dos-momentum/0023.h5 p_momentum/0023.png
